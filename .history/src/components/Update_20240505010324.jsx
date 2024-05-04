@@ -11,7 +11,7 @@ const Update = ({ record, onCancel, onUpdate }) => {
   useEffect(() => {
     // Fetch existing names when component mounts
     axios
-      .get("https://shiny-sprinkles-384a4c.netlify.app/.netlify/functions/api/")
+      .get("https://starlit-choux-d84394.netlify.app/.netlify/functions/api/")
       .then((res) => {
         const names = res.data.map((item) => item.name);
         setExistingNames(names);
@@ -42,7 +42,7 @@ const Update = ({ record, onCancel, onUpdate }) => {
 
     try {
       await axios.put(
-        `https://shiny-sprinkles-384a4c.netlify.app/.netlify/functions/api/${record._id}`,
+        `https://starlit-choux-d84394.netlify.app/.netlify/functions/api/${record._id}`,
         values
       );
       message.success("Data updated successfully");

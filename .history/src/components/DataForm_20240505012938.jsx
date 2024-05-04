@@ -89,13 +89,7 @@ const DataForm = () => {
       key: 'action',
       render: (text, record) => (
         <span className="flex gap-3">
-          <EditOutlined 
-            onClick={() => handleUpdateClick(record)}
-            style={{
-              marginLeft: '2rem',
-              fontSize: '20px',
-            }}
-            />
+          <EditOutlined onClick={() => handleUpdateClick(record)}/>
           <Popconfirm
             title="Are you sure you want to delete this data?"
             onConfirm={() => handleDelete(record._id)}

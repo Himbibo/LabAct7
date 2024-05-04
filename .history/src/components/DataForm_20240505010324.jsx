@@ -4,7 +4,6 @@ import axios from "axios";
 import { useEffect } from "react";
 import Update from "./Update";
 import Add from "./Add";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 const DataForm = () => {
   const [data, setData] = useState([]);
@@ -13,7 +12,7 @@ const DataForm = () => {
 
   useEffect(() => {
     axios
-      .get("https://shiny-sprinkles-384a4c.netlify.app/.netlify/functions/api/")
+      .get("https://starlit-choux-d84394.netlify.app/.netlify/functions/api/")
       .then((res) => {
         setData(res.data);
       })
@@ -24,7 +23,7 @@ const DataForm = () => {
 
   function handleDelete(id) {
     axios
-      .delete(`https://shiny-sprinkles-384a4c.netlify.app/.netlify/functions/api/${id}`)
+      .delete(`https://starlit-choux-d84394.netlify.app/.netlify/functions/api/${id}`)
       .then(() => {
         setData(data.filter((item) => item._id !== id));
         message.success('Data deleted successfully');
@@ -54,7 +53,7 @@ const DataForm = () => {
   
       // Additionally, update the state immediately after adding to reflect changes in the table
       axios
-        .get("https://shiny-sprinkles-384a4c.netlify.app/.netlify/functions/api/")
+        .get("https://starlit-choux-d84394.netlify.app/.netlify/functions/api/")
         .then((res) => {
           setData(res.data);
         })
@@ -89,24 +88,14 @@ const DataForm = () => {
       key: 'action',
       render: (text, record) => (
         <span className="flex gap-3">
-          <EditOutlined 
-            onClick={() => handleUpdateClick(record)}
-            style={{
-              marginLeft: '2rem',
-              fontSize: '20px',
-            }}
-            />
+          <Button onClick={() => handleUpdateClick(record)}>Update</Button>
           <Popconfirm
             title="Are you sure you want to delete this data?"
             onConfirm={() => handleDelete(record._id)}
             okText="Yes"
             cancelText="No"
           >
-            <DeleteOutlined style={{
-              marginLeft: '2rem',
-              fontSize: '20px',
-              color: 'red'
-            }}/>
+            <Button type="primary" danger>Delete</Button>
           </Popconfirm>
         </span>
       ),

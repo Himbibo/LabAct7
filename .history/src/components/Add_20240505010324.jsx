@@ -11,7 +11,7 @@ const Add = ({ onAdd }) => {
   useEffect(() => {
     // Fetch existing names when component mounts
     axios
-      .get("https://shiny-sprinkles-384a4c.netlify.app/.netlify/functions/api/")
+      .get("https://starlit-choux-d84394.netlify.app/.netlify/functions/api/")
       .then((res) => {
         const names = res.data.map((item) => item.name);
         setExistingNames(names);
@@ -48,7 +48,7 @@ const Add = ({ onAdd }) => {
 
 
     axios
-      .post("https://shiny-sprinkles-384a4c.netlify.app/.netlify/functions/api/", values)
+      .post("https://starlit-choux-d84394.netlify.app/.netlify/functions/api/", values)
       .then((res) => {
         onAdd(res.data, () => {
           message.success('Data added successfully');

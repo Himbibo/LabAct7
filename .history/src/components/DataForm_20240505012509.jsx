@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import Update from "./Update";
 import Add from "./Add";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { DeleteOutlined } from "@ant-design/icons";
 
 const DataForm = () => {
   const [data, setData] = useState([]);
@@ -89,13 +89,7 @@ const DataForm = () => {
       key: 'action',
       render: (text, record) => (
         <span className="flex gap-3">
-          <EditOutlined 
-            onClick={() => handleUpdateClick(record)}
-            style={{
-              marginLeft: '2rem',
-              fontSize: '20px',
-            }}
-            />
+          <Button onClick={() => handleUpdateClick(record)}>Update</Button>
           <Popconfirm
             title="Are you sure you want to delete this data?"
             onConfirm={() => handleDelete(record._id)}
@@ -104,9 +98,8 @@ const DataForm = () => {
           >
             <DeleteOutlined style={{
               marginLeft: '2rem',
-              fontSize: '20px',
-              color: 'red'
-            }}/>
+              fontSize: '20px'
+            }} />
           </Popconfirm>
         </span>
       ),

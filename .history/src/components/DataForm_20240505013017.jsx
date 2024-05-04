@@ -94,6 +94,7 @@ const DataForm = () => {
             style={{
               marginLeft: '2rem',
               fontSize: '20px',
+              color: 'red'
             }}
             />
           <Popconfirm
