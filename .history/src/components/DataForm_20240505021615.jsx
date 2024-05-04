@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import Update from "./Update";
 import Add from "./Add";
-import { DeleteOutlined, ImportOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined, ImportOutlined } from "@ant-design/icons";
 
 const DataForm = () => {
   const [data, setData] = useState([]);
