@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import Update from "./Update";
 import Add from "./Add";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined, FormOutlined } from "@ant-design/icons";
 
 const DataForm = () => {
   const [data, setData] = useState([]);
@@ -89,7 +89,7 @@ const DataForm = () => {
       key: 'action',
       render: (text, record) => (
         <span className="flex gap-3">
-          <EditOutlined 
+          <FormOutlined
             onClick={() => handleUpdateClick(record)}
             style={{
               marginLeft: '2rem',
